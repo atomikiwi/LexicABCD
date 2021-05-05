@@ -2,10 +2,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int a = 97;
-        int b = 98;
-        int c = 99;
-        int d = 100;
+        //a = 97
+        //b = 98
+        //c = 99
+        //d = 100
+        int iterationPrint = 0;
+        long startTime = System.currentTimeMillis();
 
         int[] display = {97,97,97,97};
 
@@ -18,16 +20,38 @@ public class Main {
                         display[2] = a3;
                         display[3] = a4;
 
-                        for(int iter: display) {
-                            System.out.print((char)iter);
+                        if(display[3] != 98) {
+                            boolean shouldPrint = true;
+                            for(int i = 0; i < display.length; i++) {
+                                if(display[i] == 98) {
+                                    if(display[i+1] != 97) {
+                                        shouldPrint = false;
+                                    }
+                                }
+                            }
+                            if(shouldPrint) {
+                                for(int iter: display) {
+                                    System.out.print((char)iter);
+                                }
+                                System.out.println();
+                                iterationPrint++;
+                            }
                         }
-                        System.out.println();
                     }
                 }
             }
         }
+        String output = "- " + iterationPrint + " chaine(s) de charactères différentes ont été affichées.";
 
+        for (int j = 0; j < output.length(); j++) {
+            System.out.print("=");
+        }
+        System.out.println();
+        System.out.println("Statistiques du programme:");
+        System.out.println(output);
 
+        long timelapse = System.currentTimeMillis() - startTime;
+        System.out.println("- Le programme s'est terminé en " + timelapse + " milliseconde(s).");
 
     }
 }
