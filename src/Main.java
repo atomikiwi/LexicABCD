@@ -1,7 +1,6 @@
 public class Main {
 
     public static void main(String[] args) {
-
         //a = 97
         //b = 98
         //c = 99
@@ -20,15 +19,34 @@ public class Main {
                         display[2] = a3;
                         display[3] = a4;
 
+                        // La chaine ne peux pas se terminer par b
                         if(display[3] != 98) {
                             boolean shouldPrint = true;
+                            boolean containA = false;
+                            boolean containD = false;
                             for(int i = 0; i < display.length; i++) {
+                                //Vérification de la condition: si la lettre b est IMMÉDIATEMENT SUIVI de a
                                 if(display[i] == 98) {
                                     if(display[i+1] != 97) {
                                         shouldPrint = false;
+                                        break;
+                                    }
+                                }
+
+                                //Vérification de la condition: si la chaine contient a ET d
+                                if(display[i] == 97 || display[i] == 100) {
+                                    if(display[i] == 97) {
+                                        containA = true;
+                                    } else if(display[i] == 100) {
+                                        containD = true;
+                                    }
+                                    if(containA && containD) {
+                                        shouldPrint = false;
+                                        break;
                                     }
                                 }
                             }
+                            //Impression de la chaine de charactère
                             if(shouldPrint) {
                                 for(int iter: display) {
                                     System.out.print((char)iter);
