@@ -51,7 +51,7 @@ public class Main {
                 }
             }
         }
-        String output = "- " + iterationPrint + " chaine(s) de charactères différentes ont été affichées.";
+        String output = "- " + iterationPrint + " chaines de charactères différentes ont été affichées.";
         for (int j = 0; j < output.length(); j++) {
             System.out.print("=");
         }
